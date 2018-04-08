@@ -12,22 +12,22 @@ def changeNums(data):
 		animalData = []
 		danger = 0
 		for index in range(len(line)):
-			if index == 4:
-				if line[4] == "1":
+			if index == 7:
+				if line[7] == "1":
 					danger += 1
-			elif index == 5:
-				if line[5] == "1":
+			elif index == 11:
+				if line[11] == "1":
 					danger += 1
 			if line[index].isalpha():
 				animalData.append(line[index])
 			else:
-				if index == 7:
+				if index == 13:
 					animalData.append(line[index])
 				else:
 					if line[index] == "1":
-						animalData.append("True")
+						animalData.append("true")
 					elif line[index] == "0":
-						animalData.append("False")
+						animalData.append("false")
 		if danger == 0:
 			animalData.append("low")
 		elif danger == 1:
@@ -44,20 +44,20 @@ def getInfo(data):
 			print("hair: %s" % (line[1]))
 			print("feathers: %s" % (line[2]))
 			print("eggs: %s" % (line[3]))
-			print("predator: %s" % (line[4]))
-			print("venomous: %s" % (line[5]))
-			print("fins: %s" % (line[6]))
-			print("number of legs: %s" % (line[7]))
-			print("tail: %s" % (line[8]))
-			print("dangerous: %s" % (line[9]))
+			print("predator: %s" % (line[7]))
+			print("venomous: %s" % (line[11]))
+			print("fins: %s" % (line[12]))
+			print("number of legs: %s" % (line[13]))
+			print("tail: %s" % (line[14]))
+			print("dangerous: %s" % (line[18]))
 def getLegs(data):
 	animals = []
 	minLegs = int(input("Minimum number of legs: "))
 	maxLegs = int(input("Maximum number of legs: "))
 	print("\nAnimal # legs\n------ ------")
 	for line in data:
-		if minLegs < int(line[7]) < maxLegs:
-			print(line[0], line[7])
+		if minLegs < int(line[13]) < maxLegs:
+			print(line[0], line[13])
 def getDangerous(data):
 	dangerous = []
 	for line in data:
