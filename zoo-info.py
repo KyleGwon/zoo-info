@@ -42,8 +42,6 @@ def getInfo(data):
 	lastIndex = len(data) - 1
 	while firstIndex <= lastIndex:
 		middleIndex = (firstIndex + lastIndex)//2
-		print(data[middleIndex][0])
-		print(animal)
 		if data[middleIndex][0] == animal:
 			animalIndex = middleIndex
 			break
