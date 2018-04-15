@@ -13,10 +13,10 @@ def changeNums(data):
 		danger = 0
 		for index in range(len(line)):
 			if index == 4:
-				if line[4] == "1":
+				if line[7] == "1":
 					danger += 1
 			elif index == 5:
-				if line[5] == "1":
+				if line[11] == "1":
 					danger += 1
 			if line[index].isalpha():
 				animalData.append(line[index])
