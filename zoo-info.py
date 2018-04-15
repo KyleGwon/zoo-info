@@ -12,11 +12,11 @@ def changeNums(data):
 		animalData = []
 		danger = 0
 		for index in range(len(line)):
-			if index == 7:
-				if line[7] == "1":
+			if index == 4:
+				if line[4] == "1":
 					danger += 1
-			elif index == 11:
-				if line[11] == "1":
+			elif index == 5:
+				if line[5] == "1":
 					danger += 1
 			if line[index].isalpha():
 				animalData.append(line[index])
@@ -25,9 +25,9 @@ def changeNums(data):
 					animalData.append(line[index])
 				else:
 					if line[index] == "1":
-						animalData.append("true")
+						animalData.append("True")
 					elif line[index] == "0":
-						animalData.append("false")
+						animalData.append("False")
 		if danger == 0:
 			animalData.append("low")
 		elif danger == 1:
@@ -38,26 +38,50 @@ def changeNums(data):
 	return newData
 def getInfo(data):
 	animal = input("search for: ").lower()
-	for line in data:
-		if line[0] == animal:
-			print("\nname: %s" % (line[0]))
-			print("hair: %s" % (line[1]))
-			print("feathers: %s" % (line[2]))
-			print("eggs: %s" % (line[3]))
-			print("predator: %s" % (line[7]))
-			print("venomous: %s" % (line[11]))
-			print("fins: %s" % (line[12]))
-			print("number of legs: %s" % (line[13]))
-			print("tail: %s" % (line[14]))
-			print("dangerous: %s" % (line[18]))
+	firstIndex = 0
+	lastIndex = len(data) - 1
+	while firstIndex <= lastIndex:
+		middleIndex = (firstIndex + lastIndex)//2
+		print(data[middleIndex][0])
+		print(animal)
+		if data[middleIndex][0] == animal:
+			animalIndex = middleIndex
+			break
+		else:
+			if animal < data[middleIndex][0]:
+				lastIndex -= 1
+			else:
+				firstIndex += 1
+	try:
+		print("\nname: %s" % (data[animalIndex][0]))
+		print("hair: %s" % (data[animalIndex][1]))
+		print("feathers: %s" % (data[animalIndex][2]))
+		print("eggs: %s" % (data[animalIndex][3]))
+		print("milk: %s" % (data[animalIndex][4]))
+		print("airborne: %s" % (data[animalIndex][5]))
+		print("aquatic: %s" % (data[animalIndex][6]))
+		print("predator: %s" % (data[animalIndex][7]))
+		print("toothed: %s" % (data[animalIndex][8]))
+		print("backbone: %s" % (data[animalIndex][9]))
+		print("breathes: %s" % (data[animalIndex][10]))
+		print("venomous: %s" % (data[animalIndex][11]))
+		print("fins: %s" % (data[animalIndex][12]))
+		print("number of legs: %s" % (data[animalIndex][13]))
+		print("tail: %s" % (data[animalIndex][14]))
+		print("domestic: %s" % (data[animalIndex][15]))
+		print("catsize: %s" % (data[animalIndex][16]))
+		print("type: %s" % (data[animalIndex][17]))
+		print("danger: %s" % (data[animalIndex][len(data[animalIndex]) - 1]))
+	except:
+		print("Error: Animal not in database")
 def getLegs(data):
 	animals = []
 	minLegs = int(input("Minimum number of legs: "))
 	maxLegs = int(input("Maximum number of legs: "))
 	print("\nAnimal # legs\n------ ------")
 	for line in data:
-		if minLegs < int(line[13]) < maxLegs:
-			print(line[0], line[13])
+		if minLegs < int(line[7]) < maxLegs:
+			print(line[0], line[7])
 def getDangerous(data):
 	dangerous = []
 	for line in data:
@@ -69,7 +93,6 @@ def main():
 	file = "animals.data"
 	data = open(file, "r")
 	info = changeNums(data)
-	print(info)
 	print("======== Information on Animals at the Zoo ========")
 	while True:
 		print("\n===================================================")
