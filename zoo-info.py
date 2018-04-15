@@ -80,8 +80,8 @@ def getLegs(data):
 	maxLegs = int(input("Maximum number of legs: "))
 	print("\nAnimal # legs\n------ ------")
 	for line in data:
-		if minLegs < int(line[7]) < maxLegs:
-			print(line[0], line[7])
+		if minLegs < int(line[13]) < maxLegs:
+			print(line[0], line[13])
 def getDangerous(data):
 	dangerous = []
 	for line in data:
